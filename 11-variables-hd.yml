@@ -1,3 +1,4 @@
+# ansble-playbook 11-variables-hd.yml -i habibat-hosts.ini -e myusername=Nina
 ---
 - name: Variable Testing for Username
   hosts: g1
