@@ -1,0 +1,16 @@
+---
+- name: Deploy E-commerce Application (web app)
+  hosts: n2
+  become: yes
+
+  tasks:
+  - name: Install Git
+    yum:
+      name: git
+      state: present
+
+  - name: Host code repo
+    git:
+      repo: https://github.com/Black-Sparkles/habibat-ansible-work-5.git
+      dest: /var/www/html
+...
