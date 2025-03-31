@@ -2,3 +2,11 @@
 # tasks file for apache
 - import_tasks: install.yml
 - import_tasks: config.yml
+
+- name: Render dynamic HTML page using Jinja2
+  template:
+    src: dynamic.html.j2
+    dest: /var/www/html/dynamic.html
+    owner: root
+    group: root
+    mode: '0644'
