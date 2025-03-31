@@ -24,19 +24,19 @@
      yum:
        name: httpd
        state: present
-     when: ansible_distribution == "Amazon"
+     when: ansible_os_family == "RedHat"
 
    - name: Start Httpd
      service:
        name: httpd 
        state: started
-     when: ansible_distribution == "Amazon"
+     when: ansible_os_family == "RedHat"
 
    - name: Enable Httpd
      service:
        name: httpd 
        enabled: yes 
-     when: ansible_distribution == "Amazon"
+     when: ansible_os_family == "RedHat"
 
 
 ...
