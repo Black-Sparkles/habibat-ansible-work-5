@@ -3,24 +3,6 @@
   hosts: g1
   become: yes
   tasks:
-   - name: Install Httpd
-     yum:
-       name: httpd
-       state: present
-     when: ansible_distribution == "Amazon" or ansible_distribution == "Red Hat" or ansible_distribution == "CentOS"
-
-   - name: Start Httpd
-     service:
-       name: httpd 
-       state: started
-     when: ansible_distribution == "Amazon" or ansible_distribution == "Red Hat" or ansible_distribution == "CentOS"
-
-   - name: Enable Httpd
-     service:
-       name: httpd 
-       enabled: yes 
-     when: ansible_distribution == "Amazon" or ansible_distribution == "Red Hat" or ansible_distribution == "CentOS"
-
 
    - name: Install Apache2
      apt:
@@ -39,4 +21,24 @@
        name: apache2 
        enabled: yes 
      when: ansible_distribution == "Ubuntu" or ansible_distribution == "ubuntu" or ansible_distribution == "Debian"
+
+     - name: Install Httpd
+     yum:
+       name: httpd
+       state: present
+     when: ansible_distribution == "Amazon" or ansible_distribution == "Red Hat" or ansible_distribution == "CentOS"
+
+   - name: Start Httpd
+     service:
+       name: httpd 
+       state: started
+     when: ansible_distribution == "Amazon" or ansible_distribution == "Red Hat" or ansible_distribution == "CentOS"
+
+   - name: Enable Httpd
+     service:
+       name: httpd 
+       enabled: yes 
+     when: ansible_distribution == "Amazon" or ansible_distribution == "Red Hat" or ansible_distribution == "CentOS"
+
+
 ...
